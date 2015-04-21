@@ -1,16 +1,16 @@
 __author__ = 'netzsooc'
-
-#               P(x, y)
-# PMI(x, y) = ----------- =
-#             P(x) * P(y)
-#
-#             P(x|y)
-#             ------ =
-#              P(x)
-#
-#             P(y|x)
-#             ------
-#              P(y)
+                   _            _
+#                 |    P(x, y)   |
+# PMI(x, y) = log2|  ----------- | =
+#                 |_ P(x) * P(y)_|
+#                  _      _
+#                 | P(x|y) |
+#             log2| ------ | =
+#                 |_ P(x) _|
+#                  _      _
+#                 | P(y|x) |
+#             log2| ------ |
+#                 |_ P(y) _|
 
 
 
@@ -46,4 +46,4 @@ def pmi(x, y, concurrencias, absolutos, probabilidad):
     :returns: TODO
 
     """
-    return prob_cond(x, y, concurrencias, absolutos) / probabilidad[x]
+    return log2(prob_cond(x, y, concurrencias, absolutos) / probabilidad[x])
